@@ -6,6 +6,8 @@
 <meta name="theme-color" content="#7c3aed">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Laxmi PG</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -127,6 +129,7 @@ function setR(r,k,v){S.read[month]=S.read[month]||{};S.read[month][r]=S.read[mon
 function burst(){const e=["🎉","✨","💜","🌸","⭐"];for(let i=0;i<22;i++){const s=document.createElement("span");s.textContent=e[i%5];s.style.cssText="position:fixed;left:50%;top:55%;font-size:22px;pointer-events:none;z-index:99";document.body.appendChild(s);const a=Math.random()*6.28,d=90+Math.random()*140;s.animate([{transform:"translate(-50%,-50%)",opacity:1},{transform:`translate(calc(-50% + ${Math.cos(a)*d}px),calc(-50% + ${Math.sin(a)*d-60}px)) rotate(${Math.random()*360}deg)`,opacity:0}],{duration:900,easing:"ease-out"}).onfinish=()=>s.remove()}}
 function tgl(id){S.paid[month]=S.paid[month]||{};S.paid[month][id]=!S.paid[month][id];save();R();if(S.paid[month][id])burst()}
 R();
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}
 </script>
 </body>
 </html>
